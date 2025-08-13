@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("Home");
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = ["Home", "Menu", "About", "Mobile App", "Contact Us"];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
+    <nav className=" top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Row */}
@@ -50,7 +50,8 @@ const Navbar = () => {
                 2
               </span>
             </div>
-            <button className="bg-blue-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm xl:text-base">
+            <button onClick={()=>setShowLogin(true)} 
+            className="bg-blue-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm xl:text-base">
               Sign In
             </button>
           </div>
