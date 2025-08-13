@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import AppDownload from '../../Components/AppDownload/AppDownload' 
 import Header from '../../Components/Header/Header'
 import ExploreMenu from '../../Components/ExploreMenu/ExploreMenu'
 import FoodDisplay from '../../Components/FoodDisplay/FoodDisplay';
@@ -12,6 +12,7 @@ const Home = () => {
       <div  className="max-w-7xl mx-auto px-4 md:px-8">
       <ExploreMenu category={category} setCategory={setCategory}></ExploreMenu>
       <FoodDisplay category={category}></FoodDisplay>
+      <AppDownload />
       </div>
     </div>
   )
