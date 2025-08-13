@@ -2,6 +2,13 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+       screens: {
+        'xs': '475px',
+        'max1050': {'max': '1050px'},
+        'max900':{'max':'900px'},
+        'max768':{'max':'768px'},
+        'max640':{'max':'640px'},
+      },
       keyframes: {
         fadeUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -21,6 +28,10 @@ module.exports = {
       },
       colors: {
         tomato: '#ff6347',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
       },
     },
   },

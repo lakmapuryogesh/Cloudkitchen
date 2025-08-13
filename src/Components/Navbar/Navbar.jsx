@@ -8,7 +8,7 @@ const Navbar = () => {
   const menuItems = ["Home", "Menu", "About", "Mobile App", "Contact Us"];
 
   return (
-    <nav className="fixed  top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Row */}
@@ -16,11 +16,11 @@ const Navbar = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img src={assets.logo} alt="Logo" className="h-10 w-auto" />
+            <img src={assets.logo} alt="Logo" className="h-8 sm:h-10 w-auto" />
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-6 items-center text-lg text-gray-700">
+          <ul className="hidden lg:flex space-x-4 xl:space-x-6 items-center text-base xl:text-lg text-gray-700">
             {menuItems.map((item) => (
               <li
                 key={item}
@@ -38,26 +38,47 @@ const Navbar = () => {
           </ul>
 
           {/* Desktop Right Section */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
             <img
               src={assets.search_icon}
               alt="Search"
-              className="w-6 h-6 cursor-pointer hover:scale-110 transition-transform"
+              className="w-5 h-5 xl:w-6 xl:h-6 cursor-pointer hover:scale-110 transition-transform"
             />
             <div className="relative cursor-pointer hover:scale-110 transition-transform">
-              <img src={assets.basket_icon} alt="Basket" className="w-6 h-6" />
+              <img src={assets.basket_icon} alt="Basket" className="w-5 h-5 xl:w-6 xl:h-6" />
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
                 2
               </span>
             </div>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 text-white px-4 xl:px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm xl:text-base">
+              Sign In
+            </button>
+          </div>
+
+          {/* Tablet Menu - Show on medium screens */}
+          <div className="hidden md:flex lg:hidden items-center space-x-4">
+            <img
+              src={assets.search_icon}
+              alt="Search"
+              className="w-5 h-5 cursor-pointer hover:scale-110 transition-transform"
+            />
+            <div className="relative cursor-pointer hover:scale-110 transition-transform">
+              <img src={assets.basket_icon} alt="Basket" className="w-5 h-5" />
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                2
+              </span>
+            </div>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">
               Sign In
             </button>
           </div>
 
           {/* Mobile Hamburger Button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)}>
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-md hover:bg-gray-100 transition-colors"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor">
                 <path
                   strokeLinecap="round"
@@ -72,9 +93,9 @@ const Navbar = () => {
 
         {/* Mobile Dropdown */}
         {isOpen && (
-          <div className="md:hidden mt-2 space-y-4">
+          <div className="md:hidden mt-2 pb-4 space-y-4 border-t border-gray-200">
             {/* Menu Items */}
-            <ul className="flex flex-col space-y-2 text-lg text-gray-700">
+            <ul className="flex flex-col space-y-3 text-lg text-gray-700 pt-4">
               {menuItems.map((item) => (
                 <li
                   key={item}
@@ -82,7 +103,7 @@ const Navbar = () => {
                     setMenu(item);
                     setIsOpen(false);
                   }}
-                  className={`cursor-pointer hover:text-blue-600 ${
+                  className={`cursor-pointer hover:text-blue-600 transition-colors ${
                     menu === item ? "text-blue-600" : ""
                   }`}
                 >
@@ -92,19 +113,21 @@ const Navbar = () => {
             </ul>
 
             {/* Icons & Button - Vertical */}
-            <div className="flex flex-col items-start space-y-4">
-              <img
-                src={assets.search_icon}
-                alt="Search"
-                className="w-6 h-6 cursor-pointer hover:scale-110 transition-transform"
-              />
-              <div className="relative cursor-pointer hover:scale-110 transition-transform">
-                <img src={assets.basket_icon} alt="Basket" className="w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
-                  2
-                </span>
+            <div className="flex flex-col items-start space-y-4 pt-4 border-t border-gray-200">
+              <div className="flex items-center space-x-4">
+                <img
+                  src={assets.search_icon}
+                  alt="Search"
+                  className="w-6 h-6 cursor-pointer hover:scale-110 transition-transform"
+                />
+                <div className="relative cursor-pointer hover:scale-110 transition-transform">
+                  <img src={assets.basket_icon} alt="Basket" className="w-6 h-6" />
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                    2
+                  </span>
+                </div>
               </div>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full">
                 Sign In
               </button>
             </div>
