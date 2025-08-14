@@ -3,7 +3,7 @@ import { menu_list } from '../../assets/assets';
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (
-    <div id='explore-menu' className="mt-8 sm:mt-12">
+    <div id='explore-menu' className="mt-8 sm:mt-08">
       {/* Heading */}
       <h1 className='font-outfit font-bold text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4'>
         Explore our menu

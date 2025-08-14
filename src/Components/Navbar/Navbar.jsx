@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
+import { Link } from 'react-router-dom';
 
 const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("Home");
@@ -8,15 +9,15 @@ const Navbar = ({setShowLogin}) => {
   const menuItems = ["Home", "Menu", "About", "Mobile App", "Contact Us"];
 
   return (
-    <nav className=" top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md font-outfit">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Row */}
         <div className="flex items-center justify-between h-16">
           
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <img src={assets.logo} alt="Logo" className="h-8 sm:h-10 w-auto" />
+        <div className="flex-shrink-0">
+           <Link to={'/'}><img src={assets.logo} alt="Logo" className="h-8 sm:h-10 w-auto" /></Link>
           </div>
 
           {/* Desktop Menu */}
@@ -45,7 +46,8 @@ const Navbar = ({setShowLogin}) => {
               className="w-5 h-5 xl:w-6 xl:h-6 cursor-pointer hover:scale-110 transition-transform"
             />
             <div className="relative cursor-pointer hover:scale-110 transition-transform">
-              <img src={assets.basket_icon} alt="Basket" className="w-5 h-5 xl:w-6 xl:h-6" />
+              <Link to={'/cart'} onClick={() => setIsOpen(false)}>
+              <img src={assets.basket_icon} alt="Basket" className="w-5 h-5 xl:w-6 xl:h-6" /></Link>
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
                 2
               </span>
@@ -64,7 +66,9 @@ const Navbar = ({setShowLogin}) => {
               className="w-5 h-5 cursor-pointer hover:scale-110 transition-transform"
             />
             <div className="relative cursor-pointer hover:scale-110 transition-transform">
+              <Link to={'/cart'} >
               <img src={assets.basket_icon} alt="Basket" className="w-5 h-5" />
+              </Link>
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
                 2
               </span>
@@ -122,7 +126,9 @@ const Navbar = ({setShowLogin}) => {
                   className="w-6 h-6 cursor-pointer hover:scale-110 transition-transform"
                 />
                 <div className="relative cursor-pointer hover:scale-110 transition-transform">
+                 <Link to='/cart' onClick={() => setIsOpen(false)}>
                   <img src={assets.basket_icon} alt="Basket" className="w-6 h-6" />
+                  </Link>
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
                     2
                   </span>
