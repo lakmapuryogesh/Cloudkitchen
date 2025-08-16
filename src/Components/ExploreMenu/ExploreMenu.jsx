@@ -1,4 +1,4 @@
-import React,{useSate} from 'react'
+import React,{useState} from 'react'
 import { menu_list } from '../../assets/assets';
 
 const ExploreMenu = ({ category, setCategory }) => {

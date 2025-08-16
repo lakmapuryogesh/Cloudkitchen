@@ -1,6 +1,13 @@
 import React from "react";
 
 const Header = () => {
+  const handleViewMenu = () => {
+    const menuSection = document.getElementById('food-display');
+    if (menuSection) {
+      menuSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative w-full max-w-7xl mx-auto rounded-lg overflow-hidden mt-4 sm:mt-8">
       {/* Image */}
@@ -31,7 +38,10 @@ const Header = () => {
           className="opacity-0 w-full flex justify-center animate-fadeUp"
           style={{ animationDelay: '0.5s' }}
         >
-          <button className="font-outfit bg-white bg-opacity-70 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-800 transition-colors text-sm sm:text-base">
+          <button 
+            onClick={handleViewMenu}
+            className="font-outfit bg-white bg-opacity-70 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-800 transition-colors text-sm sm:text-base"
+          >
             View Menu
           </button>
         </div>
